@@ -1,7 +1,0 @@
-cffi
-flake8
-pretend
-pytest-cov
-six
-sphinx
-tox

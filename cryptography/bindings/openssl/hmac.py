@@ -11,16 +11,22 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import absolute_import, division, print_function
+INCLUDES = """
+#include <openssl/hmac.h>
+"""
 
-import abc
+TYPES = """
+typedef struct { ...; } HMAC_CTX;
+"""
 
-import six
+FUNCTIONS = """
+void HMAC_CTX_init(HMAC_CTX *);
+void HMAC_CTX_cleanup(HMAC_CTX *);
+int HMAC_Init_ex(HMAC_CTX *, const void *, int, const EVP_MD *, ENGINE *);
+int HMAC_Update(HMAC_CTX *, const unsigned char *, size_t);
+int HMAC_Final(HMAC_CTX *, unsigned char *, unsigned int *);
+int HMAC_CTX_copy(HMAC_CTX *, HMAC_CTX *);
+"""
 
-
-class ModeWithInitializationVector(six.with_metaclass(abc.ABCMeta)):
-    pass
-
-
-class ModeWithNonce(six.with_metaclass(abc.ABCMeta)):
-    pass
+MACROS = """
+"""

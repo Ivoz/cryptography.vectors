@@ -11,16 +11,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from __future__ import absolute_import, division, print_function
+INCLUDES = """
+#include <openssl/pkcs7.h>
+"""
 
-import abc
+TYPES = """
+typedef struct {
+    ASN1_OBJECT *type;
+    ...;
+} PKCS7;
+"""
 
-import six
+FUNCTIONS = """
+void PKCS7_free(PKCS7 *);
+"""
 
-
-class ModeWithInitializationVector(six.with_metaclass(abc.ABCMeta)):
-    pass
-
-
-class ModeWithNonce(six.with_metaclass(abc.ABCMeta)):
-    pass
+MACROS = """
+int PKCS7_type_is_signed(PKCS7 *);
+int PKCS7_type_is_enveloped(PKCS7 *);
+int PKCS7_type_is_signedAndEnveloped(PKCS7 *);
+int PKCS7_type_is_data(PKCS7 *);
+"""

@@ -13,35 +13,9 @@
 
 from __future__ import absolute_import, division, print_function
 
-import abc
-
-import six
+from cryptography.hazmat.primitives.block.base import BlockCipher
 
 
-def register(iface):
-    def register_decorator(klass):
-        iface.register(klass)
-        return klass
-    return register_decorator
-
-
-class ModeWithInitializationVector(six.with_metaclass(abc.ABCMeta)):
-    pass
-
-
-class ModeWithNonce(six.with_metaclass(abc.ABCMeta)):
-    pass
-
-
-class CipherContext(six.with_metaclass(abc.ABCMeta)):
-    @abc.abstractmethod
-    def update(self, data):
-        """
-        update takes bytes and return bytes
-        """
-
-    @abc.abstractmethod
-    def finalize(self):
-        """
-        finalize return bytes
-        """
+__all__ = [
+    "BlockCipher",
+]

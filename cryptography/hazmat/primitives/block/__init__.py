@@ -11,20 +11,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-INCLUDES = """
-#include <openssl/dsa.h>
-"""
+from __future__ import absolute_import, division, print_function
 
-TYPES = """
-typedef ... DSA;
-"""
+from cryptography.hazmat.primitives.block.base import BlockCipher
 
-FUNCTIONS = """
-DSA *DSA_generate_parameters(int, unsigned char *, int, int *, unsigned long *,
-                             void (*)(int, int, void *), void *);
-int DSA_generate_key(DSA *);
-void DSA_free(DSA *);
-"""
 
-MACROS = """
-"""
+__all__ = [
+    "BlockCipher",
+]

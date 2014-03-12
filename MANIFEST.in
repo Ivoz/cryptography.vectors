@@ -1,0 +1,2 @@
+recursive-include cryptography/vectors/fernet *
+recursive-include cryptography/vectors/hazmat/primitives *
